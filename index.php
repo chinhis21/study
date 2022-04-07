@@ -6,7 +6,7 @@ $linkMySql=mysqlConnectNEW();
 $check=mysqli_query($linkMySql, "SELECT * FROM `users2`");
 while ($row=mysqli_fetch_assoc($check)){
     $b=mysqli_query($linkMySql, "SELECT * FROM `users` where `id`=".$row['id']." and `device_id`='".$row['device_id']."'");
-    if($b && mysqli_num_rows($b)<1){
+    if($b && mysqli_num_rows($b)==0){
         echo $row['id'].',';
     }
 }
